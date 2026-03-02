@@ -3,483 +3,320 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>なかよし ROCK BAND LIVE SHOW!! | 公式イベントサイト</title>
+<title>なかよし LIVE!! 2026.6.27 | Monkey Grand Presents</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Noto+Sans+JP:wght@400;700;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&family=M+PLUS+Rounded+1c:wght@400;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --pink:#e91e8c;
-  --hot-pink:#ff2d9b;
-  --yellow:#ffd600;
-  --dark:#1a1a1a;
-  --bg:#0d0d0d;
+  --pink:#e84b8a;
+  --hot-pink:#f06aa5;
+  --light-pink:#fce4ec;
+  --pale-pink:#fff0f5;
+  --magenta:#d6006e;
+  --lavender:#e8b8f7;
+  --yellow:#fff176;
+  --gold:#ffd54f;
+  --white:#fff;
+  --heart:#e53970;
 }
 html{scroll-behavior:smooth}
 body{
-  font-family:'Noto Sans JP',sans-serif;
-  background:var(--bg);
-  color:#fff;
+  font-family:'Zen Maru Gothic','M PLUS Rounded 1c',sans-serif;
+  background:var(--pale-pink);
+  color:#5a2d42;
   overflow-x:hidden;
 }
 
-/* ===== HERO ===== */
-.hero{
-  position:relative;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  overflow:hidden;
-}
-.hero::before{
-  content:'';
-  position:absolute;inset:0;
+/* sparkle bg */
+.sparkle-bg{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(233,30,140,.25) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 30%, rgba(255,214,0,.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(233,30,140,.2) 0%, transparent 60%);
-  z-index:1;
+    radial-gradient(2px 2px at 10% 20%, rgba(255,255,255,.9) 50%, transparent 50%),
+    radial-gradient(2px 2px at 30% 60%, rgba(255,200,220,.8) 50%, transparent 50%),
+    radial-gradient(2px 2px at 50% 10%, rgba(255,255,255,.7) 50%, transparent 50%),
+    radial-gradient(2px 2px at 70% 80%, rgba(232,75,138,.4) 50%, transparent 50%),
+    radial-gradient(2px 2px at 90% 40%, rgba(255,255,255,.8) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 15% 85%, rgba(232,184,247,.6) 50%, transparent 50%),
+    radial-gradient(1.5px 1.5px at 85% 15%, rgba(255,213,79,.5) 50%, transparent 50%);
+  animation:twinkle 3s ease-in-out infinite alternate;
 }
-.hero-particles{
-  position:absolute;inset:0;z-index:0;overflow:hidden;
+@keyframes twinkle{0%{opacity:.5}100%{opacity:1}}
+
+/* NAV */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:linear-gradient(135deg,var(--pink),var(--hot-pink),var(--lavender));
+  padding:.6rem 1.5rem;
+  display:flex;justify-content:space-between;align-items:center;
+  box-shadow:0 3px 15px rgba(232,75,138,.3);
 }
-.hero-particles span{
-  position:absolute;
-  display:block;
-  width:6px;height:6px;
-  background:var(--hot-pink);
-  border-radius:50%;
-  animation:float-up linear infinite;
+.nav-logo{
+  font-weight:900;font-size:1.3rem;color:#fff;
+  text-decoration:none;text-shadow:0 2px 8px rgba(214,0,110,.4);
+}
+.nav-logo::before{content:'💖 '}
+.nav-links{display:flex;gap:1.2rem;list-style:none}
+.nav-links a{
+  color:rgba(255,255,255,.9);text-decoration:none;font-size:.8rem;
+  font-weight:700;letter-spacing:.05em;transition:all .3s;
+  padding:.2rem .5rem;border-radius:20px;
+}
+.nav-links a:hover{background:rgba(255,255,255,.25);color:#fff}
+
+/* HERO */
+.hero{
+  position:relative;min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;overflow:hidden;
+  background:linear-gradient(180deg,#fce4ec 0%,#f8bbd0 30%,#f48fb1 60%,#e84b8a 100%);
+}
+.hero-sparkles{position:absolute;inset:0;overflow:hidden;z-index:1}
+.hero-sparkles span{
+  position:absolute;display:block;
+  width:8px;height:8px;border-radius:50%;
+  animation:sparkle-float linear infinite;
   opacity:0;
 }
-@keyframes float-up{
-  0%{transform:translateY(100vh) scale(0);opacity:0}
-  10%{opacity:1}
-  90%{opacity:1}
-  100%{transform:translateY(-10vh) scale(1);opacity:0}
+@keyframes sparkle-float{
+  0%{transform:translateY(100vh) rotate(0deg) scale(0);opacity:0}
+  15%{opacity:1}
+  85%{opacity:.8}
+  100%{transform:translateY(-10vh) rotate(360deg) scale(1.2);opacity:0}
 }
-.hero-content{
-  position:relative;z-index:2;
-  padding:2rem;
+.hero-content{position:relative;z-index:2;padding:2rem}
+.hero-presents{
+  display:inline-block;font-size:.85rem;font-weight:700;
+  color:#fff;background:linear-gradient(135deg,var(--magenta),#9c27b0);
+  padding:.4rem 1.5rem;border-radius:30px;
+  box-shadow:0 3px 15px rgba(156,39,176,.4);
+  margin-bottom:1rem;
 }
-.hero-badge{
-  display:inline-block;
-  background:var(--hot-pink);
-  color:#fff;
-  font-family:'Oswald',sans-serif;
-  font-size:.85rem;
-  letter-spacing:.15em;
-  padding:.4rem 1.5rem;
-  border-radius:50px;
-  margin-bottom:1.5rem;
-  animation:pulse-glow 2s ease-in-out infinite;
-}
-@keyframes pulse-glow{
-  0%,100%{box-shadow:0 0 10px rgba(255,45,155,.4)}
-  50%{box-shadow:0 0 25px rgba(255,45,155,.8)}
-}
+.hero-presents::before{content:'⭐ '}.hero-presents::after{content:' ⭐'}
 .hero-title{
-  font-family:'Dela Gothic One',cursive;
-  font-size:clamp(3rem,10vw,7rem);
-  line-height:1.1;
-  background:linear-gradient(135deg,#fff 0%,var(--yellow) 50%,var(--hot-pink) 100%);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-  filter:drop-shadow(0 0 30px rgba(233,30,140,.3));
-  margin-bottom:.5rem;
+  font-size:clamp(3.5rem,12vw,8rem);font-weight:900;line-height:1.1;
+  color:#fff;
+  text-shadow:0 0 20px rgba(255,255,255,.5),0 4px 0 var(--magenta),0 8px 30px rgba(214,0,110,.4);
+  margin-bottom:.3rem;
 }
 .hero-sub{
-  font-family:'Oswald',sans-serif;
-  font-size:clamp(1.2rem,3vw,2rem);
-  letter-spacing:.2em;
-  color:var(--yellow);
-  text-shadow:0 0 20px rgba(255,214,0,.5);
-  margin-bottom:2rem;
+  font-size:clamp(1rem,3vw,1.6rem);font-weight:700;
+  color:#fff;letter-spacing:.15em;
+  text-shadow:0 2px 10px rgba(214,0,110,.5);
+  margin-bottom:.5rem;
 }
 .hero-date{
-  font-family:'Oswald',sans-serif;
-  font-size:clamp(1rem,2.5vw,1.5rem);
-  color:#ccc;
-  letter-spacing:.1em;
-  margin-bottom:2.5rem;
+  font-size:clamp(1.4rem,4vw,2.2rem);font-weight:900;
+  color:var(--yellow);
+  text-shadow:0 2px 0 #e65100,0 0 20px rgba(255,241,118,.5);
+  margin-bottom:.3rem;
 }
-.hero-date strong{
-  color:#fff;
-  font-size:1.2em;
+.hero-open{
+  font-size:1rem;color:rgba(255,255,255,.9);font-weight:700;
+  margin-bottom:2rem;
+}
+.hero-hearts{
+  font-size:1.5rem;margin-bottom:1rem;
+  animation:heartbeat 1.5s ease-in-out infinite;
+}
+@keyframes heartbeat{
+  0%,100%{transform:scale(1)}50%{transform:scale(1.15)}
 }
 .cta-btn{
   display:inline-block;
-  background:linear-gradient(135deg,var(--hot-pink),#ff6ec7);
-  color:#fff;
-  font-family:'Oswald',sans-serif;
-  font-size:1.2rem;
-  letter-spacing:.15em;
-  padding:1rem 3rem;
-  border:none;
-  border-radius:60px;
-  cursor:pointer;
-  text-decoration:none;
+  background:linear-gradient(135deg,#fff,var(--yellow));
+  color:var(--magenta);font-weight:900;font-size:1.1rem;
+  padding:.9rem 2.5rem;border-radius:50px;
+  text-decoration:none;border:3px solid #fff;
+  box-shadow:0 4px 20px rgba(255,255,255,.4),0 0 0 3px var(--hot-pink);
   transition:all .3s;
-  box-shadow:0 4px 25px rgba(255,45,155,.4);
 }
 .cta-btn:hover{
-  transform:translateY(-3px) scale(1.03);
-  box-shadow:0 8px 40px rgba(255,45,155,.6);
+  transform:translateY(-3px) scale(1.05);
+  box-shadow:0 8px 30px rgba(255,255,255,.5),0 0 0 3px var(--magenta);
 }
 .scroll-hint{
-  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
-  z-index:2;color:#666;font-size:.8rem;letter-spacing:.1em;
+  position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);
+  z-index:2;color:rgba(255,255,255,.7);font-size:.75rem;font-weight:700;
   animation:bounce 2s infinite;
 }
-.scroll-hint::after{
-  content:'▼';display:block;text-align:center;margin-top:.3rem;
-}
-@keyframes bounce{
-  0%,100%{transform:translateX(-50%) translateY(0)}
-  50%{transform:translateX(-50%) translateY(8px)}
-}
+.scroll-hint::after{content:'\A▼';white-space:pre;text-align:center;display:block;margin-top:.2rem}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
 
-/* ===== SECTION COMMON ===== */
-section{
-  padding:5rem 1.5rem;
-  max-width:1000px;
-  margin:0 auto;
-}
+/* SECTION */
+section{position:relative;z-index:1;padding:4rem 1.5rem;max-width:900px;margin:0 auto}
 .section-label{
-  font-family:'Oswald',sans-serif;
-  font-size:.75rem;
-  letter-spacing:.3em;
-  color:var(--hot-pink);
-  text-transform:uppercase;
-  margin-bottom:.5rem;
+  text-align:center;font-size:.75rem;font-weight:900;
+  color:var(--hot-pink);letter-spacing:.2em;margin-bottom:.3rem;
 }
+.section-label::before,.section-label::after{content:' ✿ '}
 .section-title{
-  font-family:'Dela Gothic One',cursive;
-  font-size:clamp(1.8rem,5vw,3rem);
-  margin-bottom:2rem;
-  position:relative;
-  display:inline-block;
+  text-align:center;font-size:clamp(1.8rem,5vw,2.8rem);font-weight:900;
+  color:var(--magenta);margin-bottom:2rem;position:relative;
+  text-shadow:0 2px 0 rgba(232,75,138,.15);
 }
 .section-title::after{
-  content:'';
-  position:absolute;bottom:-.3rem;left:0;
-  width:60px;height:4px;
-  background:var(--hot-pink);
+  content:'';display:block;width:80px;height:4px;margin:.6rem auto 0;
+  background:linear-gradient(90deg,var(--pink),var(--lavender),var(--pink));
   border-radius:2px;
 }
+.ribbon{
+  display:inline-block;position:relative;
+  background:linear-gradient(135deg,var(--pink),var(--hot-pink));
+  color:#fff;font-weight:900;font-size:1rem;
+  padding:.5rem 2.5rem;margin:0 auto 2rem;border-radius:4px;
+  box-shadow:0 3px 10px rgba(232,75,138,.3);
+}
+.ribbon::before,.ribbon::after{
+  content:'';position:absolute;top:50%;border:12px solid transparent;
+}
+.ribbon::before{left:-18px;border-right-color:var(--pink);transform:translateY(-50%)}
+.ribbon::after{right:-18px;border-left-color:var(--hot-pink);transform:translateY(-50%)}
 
-/* ===== FLYER ===== */
-.flyer-section{
-  text-align:center;
-  padding:5rem 1.5rem;
-  max-width:1000px;
-  margin:0 auto;
+/* FLYER */
+.flyer-section{text-align:center;padding:4rem 1.5rem}
+.flyer-wrap{
+  display:inline-block;position:relative;
+  padding:8px;border-radius:18px;
+  background:linear-gradient(135deg,var(--pink),var(--lavender),var(--gold),var(--pink));
+  box-shadow:0 8px 40px rgba(232,75,138,.25);
 }
-.flyer-wrapper{
-  position:relative;
-  display:inline-block;
-  margin-top:1rem;
-}
-.flyer-wrapper::before{
-  content:'';
-  position:absolute;inset:-4px;
-  background:linear-gradient(135deg,var(--hot-pink),var(--yellow),var(--hot-pink));
-  border-radius:16px;
-  z-index:0;
-  animation:border-glow 3s ease-in-out infinite;
-}
-@keyframes border-glow{
-  0%,100%{opacity:.7}
-  50%{opacity:1}
-}
-.flyer-wrapper img{
-  position:relative;z-index:1;
-  max-width:100%;
-  width:480px;
-  border-radius:12px;
-  display:block;
+.flyer-wrap img{
+  display:block;max-width:100%;width:460px;border-radius:12px;
 }
 
-/* ===== INFO GRID ===== */
-.info-section{
-  padding:5rem 1.5rem;
-  max-width:1000px;
-  margin:0 auto;
+/* TIMETABLE */
+.tt-section{padding:4rem 1.5rem}
+.tt-list{list-style:none;max-width:600px;margin:0 auto}
+.tt-item{
+  display:flex;align-items:center;gap:1rem;
+  padding:1rem 1.2rem;margin-bottom:.6rem;
+  background:#fff;border-radius:14px;
+  border:2px solid var(--light-pink);
+  box-shadow:0 3px 12px rgba(232,75,138,.08);
+  transition:all .3s;
 }
+.tt-item:hover{
+  border-color:var(--hot-pink);
+  transform:translateX(6px);
+  box-shadow:0 5px 20px rgba(232,75,138,.15);
+}
+.tt-time{
+  font-weight:900;font-size:1rem;color:var(--magenta);
+  min-width:55px;text-align:center;
+  background:var(--light-pink);padding:.3rem .6rem;border-radius:8px;
+}
+.tt-name{font-weight:700;font-size:1rem;color:#5a2d42}
+.tt-name .emoji{margin-left:.3rem}
+
+/* INFO CARDS */
 .info-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:1.5rem;
-  margin-top:1rem;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1.2rem;
 }
 .info-card{
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:16px;
-  padding:2rem;
-  transition:all .3s;
+  background:#fff;border-radius:18px;padding:1.8rem;
+  border:2px solid var(--light-pink);
+  box-shadow:0 4px 15px rgba(232,75,138,.08);
+  transition:all .3s;text-align:center;
 }
 .info-card:hover{
-  background:rgba(255,255,255,.07);
   border-color:var(--hot-pink);
   transform:translateY(-4px);
+  box-shadow:0 8px 25px rgba(232,75,138,.15);
 }
-.info-card .icon{
-  font-size:2rem;
-  margin-bottom:.8rem;
-}
+.info-card .icon{font-size:2.2rem;margin-bottom:.6rem}
 .info-card h3{
-  font-family:'Oswald',sans-serif;
-  font-size:1.1rem;
-  letter-spacing:.1em;
-  color:var(--yellow);
-  margin-bottom:.5rem;
+  font-size:.9rem;font-weight:900;color:var(--hot-pink);
+  letter-spacing:.08em;margin-bottom:.5rem;
 }
-.info-card p{
-  color:#bbb;
-  line-height:1.7;
-  font-size:.95rem;
-}
-.info-card p strong{
-  color:#fff;
-}
+.info-card p{color:#7a4a60;line-height:1.7;font-size:.9rem}
+.info-card p strong{color:var(--magenta)}
 
-/* ===== COUNTDOWN ===== */
-.countdown-section{
-  text-align:center;
-  padding:4rem 1.5rem;
-  background:linear-gradient(180deg,transparent,rgba(233,30,140,.05),transparent);
-}
-.countdown-section .section-title{margin-bottom:1.5rem}
-.countdown{
-  display:flex;
-  justify-content:center;
-  gap:1.5rem;
-  flex-wrap:wrap;
-}
-.countdown-item{
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,45,155,.2);
-  border-radius:16px;
-  padding:1.5rem 1.2rem;
-  min-width:90px;
-  text-align:center;
-}
-.countdown-item .num{
-  font-family:'Oswald',sans-serif;
-  font-size:2.5rem;
-  color:var(--yellow);
-  line-height:1;
-}
-.countdown-item .label{
-  font-size:.7rem;
-  letter-spacing:.15em;
-  color:#888;
-  margin-top:.4rem;
-  text-transform:uppercase;
-}
-
-/* ===== SETLIST ===== */
-.setlist-section{
-  padding:5rem 1.5rem;
-  max-width:1000px;
-  margin:0 auto;
-}
-.setlist{
-  list-style:none;
-  margin-top:1rem;
-}
-.setlist li{
-  display:flex;
-  align-items:center;
-  gap:1rem;
-  padding:1rem 0;
-  border-bottom:1px solid rgba(255,255,255,.06);
-  transition:all .3s;
-}
-.setlist li:hover{
-  padding-left:1rem;
-  border-color:var(--hot-pink);
-}
-.setlist .track-num{
-  font-family:'Oswald',sans-serif;
-  font-size:.8rem;
-  color:var(--hot-pink);
-  min-width:30px;
-}
-.setlist .track-name{
-  font-size:1rem;
-  color:#ddd;
-}
-.setlist .track-name span{
-  color:#666;
-  font-size:.8rem;
-  margin-left:.5rem;
-}
-
-/* ===== TICKET ===== */
-.ticket-section{
-  padding:5rem 1.5rem;
-  max-width:1000px;
-  margin:0 auto;
-  text-align:center;
-}
+/* TICKET */
+.ticket-section{text-align:center}
 .ticket-box{
   display:inline-block;
-  background:linear-gradient(135deg,rgba(233,30,140,.1),rgba(255,214,0,.05));
-  border:2px solid rgba(233,30,140,.3);
-  border-radius:20px;
-  padding:3rem 3.5rem;
-  margin-top:1rem;
+  background:linear-gradient(135deg,#fff,var(--light-pink));
+  border:3px solid var(--hot-pink);
+  border-radius:24px;padding:2.5rem 3rem;
+  box-shadow:0 6px 30px rgba(232,75,138,.15);
+  position:relative;overflow:hidden;
+}
+.ticket-box::before{
+  content:'🎀';position:absolute;top:-5px;right:10px;font-size:2.5rem;
+  transform:rotate(15deg);
 }
 .ticket-price{
-  font-family:'Oswald',sans-serif;
-  font-size:3rem;
-  color:var(--yellow);
+  font-size:3rem;font-weight:900;color:var(--magenta);
+  text-shadow:0 2px 0 rgba(232,75,138,.15);
 }
-.ticket-price small{
-  font-size:1rem;
-  color:#aaa;
+.ticket-price small{font-size:.9rem;color:#7a4a60;font-weight:700}
+.ticket-note{color:#7a4a60;font-size:.85rem;margin-top:.5rem;margin-bottom:1.5rem;line-height:1.6}
+
+/* COUNTDOWN */
+.cd-section{
+  text-align:center;padding:3rem 1.5rem;
+  background:linear-gradient(180deg,transparent,rgba(232,75,138,.05),transparent);
 }
-.ticket-note{
-  color:#888;
-  font-size:.85rem;
-  margin-top:.5rem;
-  margin-bottom:1.5rem;
+.countdown{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.cd-item{
+  background:#fff;border:2px solid var(--light-pink);
+  border-radius:16px;padding:1.2rem 1rem;min-width:80px;
+  box-shadow:0 3px 12px rgba(232,75,138,.08);
+}
+.cd-item .num{
+  font-size:2.2rem;font-weight:900;color:var(--magenta);line-height:1;
+}
+.cd-item .lbl{
+  font-size:.65rem;font-weight:700;color:var(--hot-pink);
+  letter-spacing:.1em;margin-top:.3rem;
 }
 
-/* ===== ACCESS ===== */
-.access-section{
-  padding:5rem 1.5rem;
-  max-width:1000px;
-  margin:0 auto;
-}
-.access-map{
-  margin-top:1.5rem;
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:16px;
-  overflow:hidden;
-  aspect-ratio:16/9;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#555;
-  font-size:.9rem;
-}
-
-/* ===== NOTES ===== */
-.notes-section{
-  padding:4rem 1.5rem;
-  max-width:1000px;
-  margin:0 auto;
-}
-.notes-list{
-  list-style:none;
-  margin-top:1rem;
-}
+/* NOTES */
+.notes-section{padding:3rem 1.5rem;max-width:900px;margin:0 auto}
+.notes-list{list-style:none}
 .notes-list li{
-  padding:.6rem 0;
-  color:#888;
-  font-size:.85rem;
-  line-height:1.6;
-  border-bottom:1px solid rgba(255,255,255,.03);
+  padding:.5rem 0;color:#7a4a60;font-size:.82rem;line-height:1.6;
+  border-bottom:1px dashed rgba(232,75,138,.15);
 }
-.notes-list li::before{
-  content:'※';
-  color:var(--hot-pink);
-  margin-right:.5rem;
-}
+.notes-list li::before{content:'💕 ';font-size:.7rem}
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer{
-  text-align:center;
-  padding:3rem 1.5rem;
-  border-top:1px solid rgba(255,255,255,.05);
-  color:#444;
-  font-size:.75rem;
-  letter-spacing:.05em;
+  text-align:center;padding:2.5rem 1.5rem;
+  background:linear-gradient(135deg,var(--pink),var(--hot-pink),var(--lavender));
+  color:rgba(255,255,255,.85);font-size:.75rem;
 }
 footer .band-name{
-  font-family:'Dela Gothic One',cursive;
-  font-size:1.5rem;
-  background:linear-gradient(135deg,var(--hot-pink),var(--yellow));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-  margin-bottom:.5rem;
+  font-size:1.8rem;font-weight:900;color:#fff;
+  text-shadow:0 2px 10px rgba(255,255,255,.4);margin-bottom:.3rem;
 }
 
-/* ===== NAV ===== */
-.nav{
-  position:fixed;top:0;left:0;right:0;
-  z-index:100;
-  padding:.8rem 2rem;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:rgba(13,13,13,.8);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid rgba(255,255,255,.05);
-  transition:all .3s;
-}
-.nav.scrolled{
-  background:rgba(13,13,13,.95);
-}
-.nav-logo{
-  font-family:'Dela Gothic One',cursive;
-  font-size:1.2rem;
-  color:var(--hot-pink);
-  text-decoration:none;
-}
-.nav-links{
-  display:flex;gap:1.5rem;list-style:none;
-}
-.nav-links a{
-  color:#aaa;
-  text-decoration:none;
-  font-size:.8rem;
-  letter-spacing:.1em;
-  transition:color .3s;
-}
-.nav-links a:hover{color:var(--hot-pink)}
+/* FADE IN */
+.fade-in{opacity:0;transform:translateY(25px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
 
-/* ===== RESPONSIVE ===== */
 @media(max-width:600px){
   .nav-links{display:none}
-  .countdown{gap:.8rem}
-  .countdown-item{min-width:70px;padding:1rem .8rem}
-  .countdown-item .num{font-size:1.8rem}
-  .ticket-box{padding:2rem 1.5rem}
-  .flyer-wrapper img{width:100%}
-}
-
-/* ===== ANIMATIONS ===== */
-.fade-in{
-  opacity:0;
-  transform:translateY(30px);
-  transition:opacity .8s ease,transform .8s ease;
-}
-.fade-in.visible{
-  opacity:1;
-  transform:translateY(0);
+  .countdown{gap:.6rem}
+  .cd-item{min-width:65px;padding:.9rem .7rem}
+  .cd-item .num{font-size:1.6rem}
+  .ticket-box{padding:2rem 1.2rem}
+  .flyer-wrap img{width:100%}
 }
 </style>
 </head>
 <body>
+<div class="sparkle-bg"></div>
 
-<!-- NAV -->
-<nav class="nav" id="nav">
-  <a href="#" class="nav-logo">なかよし</a>
+<nav class="nav">
+  <a href="#" class="nav-logo">なかよし LIVE</a>
   <ul class="nav-links">
     <li><a href="#info">INFO</a></li>
+    <li><a href="#timetable">TIMETABLE</a></li>
     <li><a href="#flyer">FLYER</a></li>
-    <li><a href="#setlist">SETLIST</a></li>
     <li><a href="#ticket">TICKET</a></li>
     <li><a href="#access">ACCESS</a></li>
   </ul>
@@ -487,81 +324,80 @@ footer .band-name{
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-particles" id="particles"></div>
+  <div class="hero-sparkles" id="sparkles"></div>
   <div class="hero-content">
-    <div class="hero-badge">ONE NIGHT ONLY</div>
+    <div class="hero-presents">Monkey Grand Presents</div>
+    <div class="hero-hearts">💖✨💖</div>
     <h1 class="hero-title">なかよし</h1>
-    <p class="hero-sub">ROCK BAND LIVE SHOW!!</p>
-    <p class="hero-date"><strong>2025.5.24 FRI</strong> &nbsp;/&nbsp; OPEN 19:00</p>
-    <a href="#ticket" class="cta-btn">🎫 チケット情報を見る</a>
+    <p class="hero-sub">✦ LIVE!! ✦</p>
+    <p class="hero-date">2026.6.27 SAT</p>
+    <p class="hero-open">OPEN 15:30 / START 16:00</p>
+    <a href="#ticket" class="cta-btn">🎀 チケット情報はこちら</a>
   </div>
   <div class="scroll-hint">SCROLL</div>
 </section>
 
 <!-- COUNTDOWN -->
-<div class="countdown-section fade-in">
+<div class="cd-section fade-in">
   <div class="section-label">COUNTDOWN</div>
-  <div class="section-title" style="display:block">開演まであと</div>
-  <div class="countdown" id="countdown">
-    <div class="countdown-item"><div class="num" id="cd-days">--</div><div class="label">DAYS</div></div>
-    <div class="countdown-item"><div class="num" id="cd-hours">--</div><div class="label">HOURS</div></div>
-    <div class="countdown-item"><div class="num" id="cd-mins">--</div><div class="label">MINS</div></div>
-    <div class="countdown-item"><div class="num" id="cd-secs">--</div><div class="label">SECS</div></div>
+  <div class="section-title">開演まであと…💗</div>
+  <div class="countdown">
+    <div class="cd-item"><div class="num" id="cd-d">--</div><div class="lbl">DAYS</div></div>
+    <div class="cd-item"><div class="num" id="cd-h">--</div><div class="lbl">HOURS</div></div>
+    <div class="cd-item"><div class="num" id="cd-m">--</div><div class="lbl">MINS</div></div>
+    <div class="cd-item"><div class="num" id="cd-s">--</div><div class="lbl">SECS</div></div>
   </div>
 </div>
 
 <!-- INFO -->
-<section class="info-section fade-in" id="info">
+<section class="fade-in" id="info">
   <div class="section-label">EVENT INFO</div>
   <h2 class="section-title">公演情報</h2>
   <div class="info-grid">
     <div class="info-card">
       <div class="icon">📅</div>
       <h3>DATE</h3>
-      <p><strong>2025年5月24日（金）</strong><br>OPEN 19:00 / START 19:30</p>
+      <p><strong>2026年6月27日（土）</strong><br>OPEN 15:30 / START 16:00</p>
     </div>
     <div class="info-card">
       <div class="icon">📍</div>
       <h3>VENUE</h3>
-      <p><strong>LIVE HOUSE ★ STAR BEAT</strong><br>スタンディング / キャパシティ 300名</p>
-    </div>
-    <div class="info-card">
-      <div class="icon">🎸</div>
-      <h3>ARTIST</h3>
-      <p><strong>なかよし</strong><br>LIVE & LOUD!! 最高のロックをお届けします</p>
+      <p><strong>seven bridges road</strong><br>名古屋市千種区神明町32-13<br>Keiz Bldg 1F</p>
     </div>
     <div class="info-card">
       <div class="icon">🎤</div>
-      <h3>GENRE</h3>
-      <p><strong>ロック / パンク / オルタナ</strong><br>全世代が楽しめるライブショー</p>
+      <h3>PRESENTED BY</h3>
+      <p><strong>Monkey Grand</strong><br>6バンド出演のスペシャルライブ！</p>
+    </div>
+    <div class="info-card">
+      <div class="icon">🎫</div>
+      <h3>TICKET</h3>
+      <p><strong>¥2,000</strong><br>（500円ドリンク代込）</p>
     </div>
   </div>
+</section>
+
+<!-- TIMETABLE -->
+<section class="tt-section fade-in" id="timetable">
+  <div class="section-label">TIME TABLE</div>
+  <h2 class="section-title">タイムテーブル</h2>
+  <ul class="tt-list">
+    <li class="tt-item"><span class="tt-time">16:00</span><span class="tt-name">インチキペンダント<span class="emoji">🎵</span></span></li>
+    <li class="tt-item"><span class="tt-time">16:50</span><span class="tt-name">Astro<span class="emoji">⭐</span></span></li>
+    <li class="tt-item"><span class="tt-time">17:40</span><span class="tt-name">ハローワールド<span class="emoji">🎵✨</span></span></li>
+    <li class="tt-item"><span class="tt-time">18:30</span><span class="tt-name">Raven<span class="emoji">💜</span></span></li>
+    <li class="tt-item"><span class="tt-time">19:20</span><span class="tt-name">秋山メイデン<span class="emoji">❤️</span></span></li>
+    <li class="tt-item"><span class="tt-time">20:10</span><span class="tt-name">Monkey Grand<span class="emoji">🐒👑</span></span></li>
+  </ul>
 </section>
 
 <!-- FLYER -->
 <section class="flyer-section fade-in" id="flyer">
   <div class="section-label">FLYER</div>
   <h2 class="section-title">フライヤー</h2>
-  <div class="flyer-wrapper">
-    <img src="flyer.png" alt="なかよし ROCK BAND LIVE SHOW!! フライヤー" loading="lazy">
+  <div class="flyer-wrap">
+    <img src="flyer.png" alt="なかよし LIVE フライヤー" loading="lazy">
   </div>
-</section>
-
-<!-- SETLIST -->
-<section class="setlist-section fade-in" id="setlist">
-  <div class="section-label">SET LIST</div>
-  <h2 class="section-title">予定セットリスト</h2>
-  <ul class="setlist">
-    <li><span class="track-num">01</span><span class="track-name">オープニング ～ なかよしのテーマ</span></li>
-    <li><span class="track-num">02</span><span class="track-name">ロックンロール・サラリーマン</span></li>
-    <li><span class="track-num">03</span><span class="track-name">現場のブルース</span></li>
-    <li><span class="track-num">04</span><span class="track-name">タンクトップ・アンセム</span></li>
-    <li><span class="track-num">05</span><span class="track-name">金曜の夜に叫べ</span></li>
-    <li><span class="track-num">06</span><span class="track-name">友情フォーエバー</span></li>
-    <li><span class="track-num">07</span><span class="track-name">ヘルメット・ロッカー</span></li>
-    <li><span class="track-num">08</span><span class="track-name">ONE NIGHT ONLY <span>～ アンコール</span></span></li>
-  </ul>
-  <p style="color:#555;font-size:.8rem;margin-top:1.5rem;">※ セットリストは変更になる場合があります</p>
 </section>
 
 <!-- TICKET -->
@@ -569,26 +405,26 @@ footer .band-name{
   <div class="section-label">TICKET</div>
   <h2 class="section-title">チケット</h2>
   <div class="ticket-box">
-    <div class="ticket-price">¥3,500 <small>(税込 / ドリンク代別)</small></div>
-    <p class="ticket-note">前売り ¥3,500 / 当日 ¥4,000<br>整理番号順入場</p>
-    <a href="#" class="cta-btn" onclick="alert('チケット予約ページは準備中です！'); return false;">🎫 チケットを予約する</a>
+    <div class="ticket-price">¥2,000 <small>（税込）</small></div>
+    <p class="ticket-note">500円ドリンク代込<br>整理番号順入場</p>
+    <a href="#" class="cta-btn" onclick="alert('チケット予約ページは準備中です💖'); return false;">🎀 チケットを予約する</a>
   </div>
 </section>
 
 <!-- ACCESS -->
-<section class="access-section fade-in" id="access">
+<section class="fade-in" id="access">
   <div class="section-label">ACCESS</div>
   <h2 class="section-title">アクセス</h2>
   <div class="info-grid">
     <div class="info-card">
-      <div class="icon">🏢</div>
-      <h3>LIVE HOUSE ★ STAR BEAT</h3>
-      <p>〒150-0000 東京都渋谷区○○ 1-2-3<br>B1F スタービートビル<br><br>🚃 渋谷駅 徒歩5分<br>🚃 原宿駅 徒歩10分</p>
+      <div class="icon">🏠</div>
+      <h3>seven bridges road</h3>
+      <p>〒464-0000<br><strong>名古屋市千種区神明町32-13</strong><br>Keiz Bldg 1F</p>
     </div>
     <div class="info-card">
       <div class="icon">⏰</div>
       <h3>タイムテーブル</h3>
-      <p><strong>18:30</strong> 開場<br><strong>19:00</strong> 開演<br><strong>21:00</strong> 終演予定<br><br>※ 再入場可</p>
+      <p><strong>15:30</strong> 開場<br><strong>16:00</strong> 開演<br><strong>20:10</strong> トリ（Monkey Grand）</p>
     </div>
   </div>
 </section>
@@ -598,73 +434,52 @@ footer .band-name{
   <div class="section-label">NOTES</div>
   <h2 class="section-title">注意事項</h2>
   <ul class="notes-list">
-    <li>未就学児の入場はお断りさせていただきます</li>
-    <li>会場内での録音・録画・撮影は固くお断りいたします</li>
-    <li>ドリンク代は別途600円を入場時にお支払いください</li>
-    <li>公演中のモッシュ・ダイブ行為は禁止です</li>
+    <li>会場内での録音・録画・撮影はアーティストの指示に従ってください</li>
+    <li>ドリンク代500円はチケット代に含まれています</li>
     <li>会場周辺での路上駐車はご遠慮ください</li>
     <li>天災等やむを得ない事情により公演が中止になる場合がございます</li>
     <li>チケットの転売は固くお断りいたします</li>
   </ul>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="band-name">なかよし</div>
-  <p>ROCK BAND LIVE SHOW!! — ONE NIGHT ONLY</p>
-  <p style="margin-top:.5rem;">© 2025 なかよし All Rights Reserved.</p>
+  <div class="band-name">💖 なかよし 💖</div>
+  <p>Monkey Grand Presents — 2026.6.27 SAT</p>
+  <p style="margin-top:.3rem">© 2026 Monkey Grand All Rights Reserved.</p>
 </footer>
 
 <script>
-// Particles
-const pc=document.getElementById('particles');
-for(let i=0;i<40;i++){
+const sp=document.getElementById('sparkles');
+for(let i=0;i<50;i++){
   const s=document.createElement('span');
   s.style.left=Math.random()*100+'%';
-  s.style.animationDuration=(4+Math.random()*6)+'s';
-  s.style.animationDelay=Math.random()*8+'s';
-  s.style.width=s.style.height=(2+Math.random()*5)+'px';
-  const colors=['#e91e8c','#ffd600','#ff6ec7','#fff'];
+  s.style.animationDuration=(5+Math.random()*8)+'s';
+  s.style.animationDelay=Math.random()*10+'s';
+  const sz=3+Math.random()*8;
+  s.style.width=s.style.height=sz+'px';
+  const colors=['#fff','#fce4ec','#f8bbd0','#ffd54f','#e8b8f7','#e84b8a'];
   s.style.background=colors[Math.floor(Math.random()*colors.length)];
-  pc.appendChild(s);
+  s.style.boxShadow='0 0 '+(sz*2)+'px '+s.style.background;
+  sp.appendChild(s);
 }
 
-// Nav scroll
-window.addEventListener('scroll',()=>{
-  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);
-});
-
-// Countdown
-const target=new Date('2025-05-24T19:00:00+09:00').getTime();
-function updateCD(){
-  const now=Date.now();
-  let diff=target-now;
-  if(diff<0){
-    document.getElementById('cd-days').textContent='🎸';
-    document.getElementById('cd-hours').textContent='LIVE';
-    document.getElementById('cd-mins').textContent='NOW';
-    document.getElementById('cd-secs').textContent='🔥';
-    return;
-  }
-  const d=Math.floor(diff/86400000);diff%=86400000;
-  const h=Math.floor(diff/3600000);diff%=3600000;
-  const m=Math.floor(diff/60000);diff%=60000;
-  const s=Math.floor(diff/1000);
-  document.getElementById('cd-days').textContent=String(d).padStart(2,'0');
-  document.getElementById('cd-hours').textContent=String(h).padStart(2,'0');
-  document.getElementById('cd-mins').textContent=String(m).padStart(2,'0');
-  document.getElementById('cd-secs').textContent=String(s).padStart(2,'0');
+const target=new Date('2026-06-27T16:00:00+09:00').getTime();
+function tick(){
+  let diff=target-Date.now();
+  if(diff<0){document.getElementById('cd-d').textContent='🎸';document.getElementById('cd-h').textContent='LIVE';document.getElementById('cd-m').textContent='NOW';document.getElementById('cd-s').textContent='💖';return}
+  const d=Math.floor(diff/864e5);diff%=864e5;
+  const h=Math.floor(diff/36e5);diff%=36e5;
+  const m=Math.floor(diff/6e4);diff%=6e4;
+  const s=Math.floor(diff/1e3);
+  document.getElementById('cd-d').textContent=String(d).padStart(2,'0');
+  document.getElementById('cd-h').textContent=String(h).padStart(2,'0');
+  document.getElementById('cd-m').textContent=String(m).padStart(2,'0');
+  document.getElementById('cd-s').textContent=String(s).padStart(2,'0');
 }
-updateCD();
-setInterval(updateCD,1000);
+tick();setInterval(tick,1000);
 
-// Scroll animations
-const observer=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting)e.target.classList.add('visible');
-  });
-},{threshold:0.1});
-document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.1});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>
